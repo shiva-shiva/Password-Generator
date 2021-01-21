@@ -10,7 +10,6 @@ var confirmLowerCase;
 var confirmUpperCase;
 var confirmSpecialCharacter;
 var confirmNumericCharavter;
-var passwordCharacters = []
 
 var generateBtn = document.querySelector("#generate");
 
@@ -29,6 +28,9 @@ function generatePassword(){
   var confirmNumericCharacter = confirm("Press OK if you would like to have numeric inside of password");     
   var confirmSpecialCharacter = confirm("Press OK if you would like to have special characters inside of password");
  
+  var passwordCharacters = []
+
+   
   if(confirmLowerCase){
     passwordCharacters = [...passwordCharacters,...charLower]
   }
@@ -42,6 +44,7 @@ function generatePassword(){
     passwordCharacters =[...passwordCharacters,...specialChar]
   }
   var randomPassword=""
+
   for(var i=0; i< confirmLength; i++){
      randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
   }
