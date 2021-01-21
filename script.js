@@ -14,10 +14,11 @@ var passwordCharacters = []
 var randomPassword=""
 
 var generateBtn = document.querySelector("#generate");
-
+var passwordText = document.querySelector("#password");
 
 
 function generatePassword(){
+  passwordText.value = '';
   var confirmLength = (prompt("how many characters would you like your password have?"));
 
   if(confirmLength<=7 || confirmLength>=129){
@@ -48,16 +49,9 @@ function generatePassword(){
    return randomPassword
 }
 
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+ generateBtn.addEventListener("click", ()=>{
+    var password = generatePassword();
+    passwordText.value = password;
+});
 
