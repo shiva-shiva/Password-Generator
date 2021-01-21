@@ -11,14 +11,13 @@ var confirmUpperCase;
 var confirmSpecialCharacter;
 var confirmNumericCharavter;
 var passwordCharacters = []
-var randomPassword=""
 
 var generateBtn = document.querySelector("#generate");
-var passwordText = document.querySelector("#password");
+
 
 
 function generatePassword(){
-  passwordText.value = '';
+ 
   var confirmLength = (prompt("how many characters would you like your password have?"));
 
   if(confirmLength<=7 || confirmLength>=129){
@@ -42,7 +41,7 @@ function generatePassword(){
   if(confirmSpecialCharacter){
     passwordCharacters =[...passwordCharacters,...specialChar]
   }
-   
+  var randomPassword=""
   for(var i=0; i< confirmLength; i++){
      randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
   }
@@ -51,6 +50,7 @@ function generatePassword(){
 
 // Add event listener to generate button
  generateBtn.addEventListener("click", ()=>{
+    var passwordText = document.querySelector("#password");
     var password = generatePassword();
     passwordText.value = password;
 });
