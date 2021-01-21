@@ -43,6 +43,8 @@ function generatePassword(){
   if(confirmSpecialCharacter){
     passwordCharacters =[...passwordCharacters,...specialChar]
   }
+  console.log(passwordCharacters)
+
   var randomPassword=""
 
   for(var i=0; i< confirmLength; i++){
